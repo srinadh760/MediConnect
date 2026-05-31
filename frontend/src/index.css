@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --primary:     #2563eb; /* blue-600 */
+  --primary-dark:#1d4ed8; /* blue-700 */
+  --accent:      #0d9488; /* teal-600 */
+  --success:     #059669; /* emerald-600 */
+  --danger:      #dc2626; /* red-600 */
+  --warning:     #d97706; /* amber-600 */
+  --bg:          #f8fafc; /* slate-50 */
+  --surface:     #ffffff; /* white */
+  --surface2:    #f1f5f9; /* slate-100 */
+  --border:      #e2e8f0; /* slate-200 */
+  --text:        #0f172a; /* slate-900 */
+  --muted:       #64748b; /* slate-500 */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+/* ── Standard Card (Replacing Glass) ── */
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* ── Solid Primary text (Replacing Gradient) ── */
+.gradient-text {
+  color: var(--primary);
+}
+
+/* ── Primary button ── */
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary:hover { background: var(--primary-dark); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); }
+.btn-primary:active { transform: translateY(0); }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; background: var(--primary); }
+
+/* ── Secondary button ── */
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-secondary:hover { background: var(--surface2); border-color: #cbd5e1; }
+
+/* ── Input ── */
+.input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 11px 14px;
+  color: var(--text);
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }
+.input::placeholder { color: var(--muted); }
+
+/* ── Badge / Tag ── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  background: #eff6ff; /* blue-50 */
+  color: var(--primary);
+  border: 1px solid #bfdbfe; /* blue-200 */
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.tag:hover { background: #dbeafe; /* blue-100 */ }
+.tag.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+/* ── Slot grid ── */
+.slot-free     { background: #f0fdf4; border-color: #bbf7d0; color: var(--success); }
+.slot-booked   { background: #fef2f2; border-color: #fecaca; color: var(--danger); cursor: not-allowed; opacity: 0.7; }
+.slot-selected { background: var(--primary); border-color: var(--primary-dark); color: white; }
+
+/* ── Star rating ── */
+.star { cursor: pointer; transition: transform 0.1s; font-size: 22px; color: #fbbf24; }
+.star:hover { transform: scale(1.1); }
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.fade-up  { animation: fadeUp  0.4s ease forwards; }
+.slide-in { animation: slideIn 0.3s ease forwards; }
+
+/* ── Severity badges ── */
+.severity-serious { background: #fef2f2; color: var(--danger); border: 1px solid #fecaca; }
+.severity-normal  { background: #f0fdf4; color: var(--success); border: 1px solid #bbf7d0; }
+.severity-mild    { background: #fffbeb; color: var(--warning); border: 1px solid #fde68a; }

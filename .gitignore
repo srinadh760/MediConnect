@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Environment variables (contains API keys and DB credentials)
+.env
+backend/.env
+
+# Local uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Production builds
+frontend/dist/
+frontend/dist-ssr/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# System Files
+.DS_Store
+Thumbs.db
